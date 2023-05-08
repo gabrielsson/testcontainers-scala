@@ -165,7 +165,7 @@ class DockerComposeContainer(composeFiles: ComposeFile,
     container.withOptions("--compatibility")
     container.withEnv(env.asJava)
     container.withTailChildContainers(tailChildContainers)
-
+    container.withRemoveVolumes(false)
     logConsumers.foreach { serviceLogConsumer =>
       container.withLogConsumer(serviceLogConsumer.serviceName, serviceLogConsumer.consumer)
     }
